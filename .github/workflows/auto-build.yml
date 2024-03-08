@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true & contains(github.event.pull_request.title, 'feature/release')
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.title, 'feature/release')
     runs-on: ubuntu-latest
     permissions:
       contents: read
