@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      args:
+        - FRONTEND=${FRONTEND}
+      context: backend
+    restart: always
+    ports:
+      - 5000:5000
+  frontend:
+    build:
+      args:
+          - BACKEND=${BACKEND}
+      context: frontend
+    ports:
+      - 8080:80
+    depends_on:
+      - backend
